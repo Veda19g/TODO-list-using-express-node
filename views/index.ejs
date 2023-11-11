@@ -1,0 +1,50 @@
+<%- include("partials/header.ejs") %>
+<main>
+    <div class="box" id="heading">
+      <h1><%= day %>, <%= month %> <%= no %></h1>
+    </div>
+    <div class="input-box">
+        <form class="form-class" method="post" action="/submit">
+            <div class="input-container">
+                <input class="box" id="detail" name="details" type="text" placeholder="Please Enter your task" />
+                <input class="submit-box" type="submit" value="+">
+            </div>
+        </form>
+    </div>
+
+    <!-- Today List -->
+<div class="today-list" >
+    <% if (newtask.length > 0) { %>
+        <div class="task-list">
+            <% for (let i = 0; i < newtask.length; i++) { %>
+                <div class="box">
+                       <div class="items">
+                            <h3>
+                                <input class="tick-box" type="checkbox" id="<%= 'task-checkbox-' + i %>  <%= wtask[i].checked ? 'checked' : '' %>" />
+                                <span id="<%= 'task-text-' + i %>"><%= newtask[i] %></span>
+                            </h3>
+                        </div>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</div>
+</main>
+</body>
+</html>
+
+
+<script>
+    // Add event listeners to checkboxes to toggle underlining for each task
+    const checkboxes = document.querySelectorAll('.tick-box');
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.addEventListener('change', function () {
+            const taskText = document.querySelector('#task-text-' + index);
+            taskText.style.textDecoration = this.checked ? 'line-through' : 'none';
+        });
+    });
+</script>
+</main>
+</body>
+</html>
+

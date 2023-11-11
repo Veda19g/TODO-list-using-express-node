@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <title>To-do</title>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div><button id="today-button">Today</button></div>
+      <div><button id="work-button">work</button></div>
+    </div>
+    <hr />
+  </body>
+</html>
+<script>
+  const todayButton = document.getElementById("today-button");
+  const workButton = document.getElementById("work-button");
+
+  todayButton.addEventListener("click", () => {
+    // Redirect to the regular tasks route (e.g., "/")
+    window.location.href = "/";
+  });
+
+  workButton.addEventListener("click", () => {
+    // Redirect to the work tasks route (e.g., "/work")
+    window.location.href = "/work";
+  });
+</script>
